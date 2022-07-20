@@ -8,6 +8,9 @@ Project 3
 upload bikeshare project to github
 
 #Files used
-
+bikeshare.py
+chicago.csv
+new_york_city.csv
+washington.csv
 
 #Credits
