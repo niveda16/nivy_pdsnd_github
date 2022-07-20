@@ -19,7 +19,7 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "none" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data for Chicago, New York City, Washington!')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    # get user input for city (chicago, new york city, washington).
     while True:
         city = input("Which city would you like to see first? Enter Chicago,New York City,Washington or 'e' to exit- ").lower()
         if city == 'chicago' or city == 'new york city' or city == 'washington':
@@ -108,7 +108,7 @@ def time_stats(df):
     popular_day = df['day_of_week'].mode()[0]
     print("The most popular day of commute is {}".format(popular_day))
 
-    # displaying the most common start hour
+    # displaying the most common start hour of bike rental
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
     print("The most popular hour of commute is {}".format(popular_hour))
@@ -132,7 +132,7 @@ def time_stats(df):
 
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip."""
+    """Displays statistics on the most popular stations and trip combinations."""
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
