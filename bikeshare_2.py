@@ -1,6 +1,6 @@
 import time
 import pandas as pd
-import numpy as np
+#import numpy as np
 
 pd.options.display.width = 0
 
@@ -9,7 +9,7 @@ CITY_DATA = {'chicago': 'chicago.csv',
              'washington': 'washington.csv'}
 
 
-def get_filters():
+def get_filters_for_dataframe():
     """
     Asks user to specify a city, month, and day to analyze.
 
@@ -56,11 +56,11 @@ def get_filters():
         except ValueError:
             print("You entered an invalid day, please choose from the above options. ")
 
-    print('-' * 40)
+    print('*' * 40)
     return city, month, day
 
 
-def load_data(city, month, day):
+def load_data_in_dataframe(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
 
@@ -92,7 +92,7 @@ def load_data(city, month, day):
     return df
 
 
-def time_stats(df):
+def time_statistics(df):
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
@@ -123,16 +123,16 @@ def time_stats(df):
     while question:
         print(df.iloc[start:start + 5])
         start += 5
-        view_display = input("Do you wish to continue?yes or no : ").lower()
-        if view_display != 'yes':
+        view_more = input("Do you wish to continue?yes or no : ").lower()
+        if view_more != 'yes':
             question = False
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-' * 40)
+    print('*' * 40)
 
 
-def station_stats(df):
-    """Displays statistics on the most popular stations and trip combinations."""
+def station_statistics(df):
+    """Displays statistics on the most popular stations and trip."""
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
@@ -144,14 +144,14 @@ def station_stats(df):
     print("Most common destination is ", df['End Station'].mode()[0])
 
     # displaying most frequent combination of start station and end station trip
-    pop_trip = df[['Start Station', 'End Station']].value_counts().index.tolist()[0]
-    print("Popular trip ", pop_trip)
+    popular_trip = df[['Start Station', 'End Station']].value_counts().index.tolist()[0]
+    print("Popular trip ", popular_trip)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-' * 40)
+    print('*' * 40)
 
 
-def trip_duration_stats(df):
+def trip_duration_statistics(df):
     """Displays statistics on the total and average trip duration."""
 
     print('\nCalculating Trip Duration...\n')
@@ -165,10 +165,10 @@ def trip_duration_stats(df):
     print("The average trip duration is {} seconds ".format(mean_travel_time))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-' * 40)
+    print('*' * 40)
 
 
-def user_stats(df, city):
+def user_statistics(df, city):
     """Displays statistics on bikeshare users."""
 
     print('\nCalculating User Stats...\n')
@@ -187,17 +187,17 @@ def user_stats(df, city):
         print("Most recent Birth year is ", df['Birth Year'].max())
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-' * 40)
+    print('*' * 40)
 
 
 def main():
     while True:
-        city, month, day = get_filters()
-        df = load_data(city, month, day)
-        time_stats(df)
-        station_stats(df)
-        trip_duration_stats(df)
-        user_stats(df, city)
+        city, month, day = get_filters_for_dataframe()
+        df = load_data_in_dataframe(city, month, day)
+        time_statistics(df)
+        station_statistics(df)
+        trip_duration_statistics(df)
+        user_statistics(df, city)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
