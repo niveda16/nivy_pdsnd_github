@@ -9,7 +9,7 @@ CITY_DATA = {'chicago': 'chicago.csv',
              'washington': 'washington.csv'}
 
 
-def get_filters():
+def get_filters_for_dataframe():
     """
     Asks user to specify a city, month, and day to analyze.
 
@@ -60,7 +60,7 @@ def get_filters():
     return city, month, day
 
 
-def load_data(city, month, day):
+def load_data_in_dataframe(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
 
@@ -92,7 +92,7 @@ def load_data(city, month, day):
     return df
 
 
-def time_stats(df):
+def time_statistics(df):
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
@@ -131,7 +131,7 @@ def time_stats(df):
     print('-' * 40)
 
 
-def station_stats(df):
+def station_statistics(df):
     """Displays statistics on the most popular stations and trip."""
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
@@ -151,7 +151,7 @@ def station_stats(df):
     print('-' * 40)
 
 
-def trip_duration_stats(df):
+def trip_duration_statistics(df):
     """Displays statistics on the total and average trip duration."""
 
     print('\nCalculating Trip Duration...\n')
@@ -168,7 +168,7 @@ def trip_duration_stats(df):
     print('-' * 40)
 
 
-def user_stats(df, city):
+def user_statistics(df, city):
     """Displays statistics on bikeshare users."""
 
     print('\nCalculating User Stats...\n')
@@ -192,12 +192,12 @@ def user_stats(df, city):
 
 def main():
     while True:
-        city, month, day = get_filters()
-        df = load_data(city, month, day)
-        time_stats(df)
-        station_stats(df)
-        trip_duration_stats(df)
-        user_stats(df, city)
+        city, month, day = get_filters_for_dataframe()
+        df = load_data_in_dataframe(city, month, day)
+        time_statistics()(df)
+        station_statistics()(df)
+        trip_duration_statistics()(df)
+        user_statistics()(df, city)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
