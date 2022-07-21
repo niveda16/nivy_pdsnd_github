@@ -123,8 +123,8 @@ def time_statistics(df):
     while question:
         print(df.iloc[start:start + 5])
         start += 5
-        view_display = input("Do you wish to continue?yes or no : ").lower()
-        if view_display != 'yes':
+        view_more = input("Do you wish to continue?yes or no : ").lower()
+        if view_more != 'yes':
             question = False
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -144,8 +144,8 @@ def station_statistics(df):
     print("Most common destination is ", df['End Station'].mode()[0])
 
     # displaying most frequent combination of start station and end station trip
-    pop_trip = df[['Start Station', 'End Station']].value_counts().index.tolist()[0]
-    print("Popular trip ", pop_trip)
+    popular_trip = df[['Start Station', 'End Station']].value_counts().index.tolist()[0]
+    print("Popular trip ", popular_trip)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-' * 40)
