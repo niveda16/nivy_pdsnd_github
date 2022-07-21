@@ -56,7 +56,7 @@ def get_filters_for_dataframe():
         except ValueError:
             print("You entered an invalid day, please choose from the above options. ")
 
-    print('-' * 40)
+    print('*' * 40)
     return city, month, day
 
 
@@ -128,7 +128,7 @@ def time_statistics(df):
             question = False
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-' * 40)
+    print('*' * 40)
 
 
 def station_statistics(df):
@@ -148,7 +148,7 @@ def station_statistics(df):
     print("Popular trip ", popular_trip)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-' * 40)
+    print('*' * 40)
 
 
 def trip_duration_statistics(df):
@@ -165,7 +165,7 @@ def trip_duration_statistics(df):
     print("The average trip duration is {} seconds ".format(mean_travel_time))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-' * 40)
+    print('*' * 40)
 
 
 def user_statistics(df, city):
@@ -187,7 +187,7 @@ def user_statistics(df, city):
         print("Most recent Birth year is ", df['Birth Year'].max())
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-' * 40)
+    print('*' * 40)
 
 
 def main():
